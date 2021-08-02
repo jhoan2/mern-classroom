@@ -22,6 +22,10 @@ const UserSchema = new mongoose.Schema({
   created: {
     type: Date,
     default: Date.now
+  },
+  educator: {
+    type: Boolean,
+    default: false
   }
 })
 
