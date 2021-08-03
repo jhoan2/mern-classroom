@@ -10,7 +10,7 @@ const router = express.Router()
 
 router.route('/api/courses/by/:userId')
   .post(authCtrl.requireSignin, authCtrl.hasAuthorization, userCtrl.isEducator, courseCtrl.create)
-//   .get(authCtrl.requireSignin, authCtrl.hasAuthorization, courseCtrl.listByInstructor)
+  .get(authCtrl.requireSignin, authCtrl.hasAuthorization, courseCtrl.listByInstructor)
 
 // router.route('/api/courses/photo/:courseId')
 //   .get(courseCtrl.photo, courseCtrl.defaultPhoto)
@@ -26,6 +26,7 @@ router.route('/api/courses/by/:userId')
 //   .put(authCtrl.requireSignin, courseCtrl.isInstructor, courseCtrl.update)
 //   .delete(authCtrl.requireSignin, courseCtrl.isInstructor, courseCtrl.remove)
 
+// user is available in the request object as profile 
 // router.param('courseId', courseCtrl.courseByID)
 router.param('userId', userCtrl.userByID)
 
