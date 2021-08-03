@@ -11,6 +11,7 @@ import Menu from './core/Menu'
 import NewCourse from './course/NewCourse'
 import MyCourses from './course/MyCourses'
 import Course from './course/Course'
+import EditCourse from './course/EditCourse'
 
 const MainRouter = () => {
     return (<div>
@@ -25,6 +26,7 @@ const MainRouter = () => {
         <PrivateRoute path="/user/edit/:userId" component={EditProfile}/>
         <PrivateRoute path="/seller/courses" component={MyCourses}/>
         <Route path="/user/:userId" component={Profile}/>
+        <PrivateRoute path="/teach/course/edit/:courseId" component={EditCourse}/>
       </Switch>
     </div>)
 }

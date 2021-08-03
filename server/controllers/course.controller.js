@@ -76,6 +76,8 @@ const create = (req, res) => {
       }
       let course = req.course
       course = extend(course, fields)
+      //lessons in array of nested objects, and we need to parse and assign 
+      //leesons array to the course before saving it. 
       if(fields.lessons){
         course.lessons = JSON.parse(fields.lessons)
       }
