@@ -34,6 +34,7 @@ const CourseSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
+  //storing lessons in the array 
   lessons: [LessonSchema]
 })
 

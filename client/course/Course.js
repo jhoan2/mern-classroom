@@ -229,10 +229,11 @@ export default function Course ({match}) {
                   action={
              auth.isAuthenticated().user && auth.isAuthenticated().user._id == course.instructor._id && !course.published &&
                 (<span className={classes.action}>
-                  {/* <NewLesson courseId={course._id} addLesson={addLesson}/> */}
+                  <NewLesson courseId={course._id} addLesson={addLesson}/>
                 </span>)
             }
                 />
+                
                 <List>
                 {course.lessons && course.lessons.map((lesson, index) => {
                     return(<span key={index}>

@@ -18,8 +18,8 @@ router.route('/api/courses/by/:userId')
 // router.route('/api/courses/defaultphoto')
 //   .get(courseCtrl.defaultPhoto)
 
-// router.route('/api/courses/:courseId/lesson/new')
-//   .put(authCtrl.requireSignin, courseCtrl.isInstructor, courseCtrl.newLesson)
+router.route('/api/courses/:courseId/lesson/new')
+  .put(authCtrl.requireSignin, courseCtrl.isInstructor, courseCtrl.newLesson)
 
 router.route('/api/courses/:courseId')
   .get(courseCtrl.read)
