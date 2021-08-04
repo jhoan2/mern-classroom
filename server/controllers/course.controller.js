@@ -133,6 +133,39 @@ const create = (req, res) => {
       next()
   }
   
+  const listByInstructor = (req, res) => {
+    Course.find({instructor: req.profile._id}, (err, courses) => {
+      if (err) {
+        return res.status(400).json({
+          error: errorHandler.getErrorMessage(err)
+        })
+      }
+      res.json(courses)
+    }).populate('instructor', '_id name')
+  }
+  
+  const listPublished = (req, res) => {
+    Course.find({published: true}, (err, courses) => {
+      if (err) {
+        return res.status(400).json({
+          error: errorHandler.getErrorMessage(err)
+        })
+      }
+      res.json(courses)
+    }).populate('instructor', '_id name')
+  }
+  
+  const photo = (req, res, next) => {
+    if(req.course.image.data){
+      res.set("Content-Type", req.course.image.contentType)
+      return res.send(req.course.image.data)
+    }
+    next()
+  }
+  const defaultPhoto = (req, res) => {
+    return res.sendFile(process.cwd()+defaultImage)
+  }
+
   export default {
       create,
       listByInstructor,
@@ -142,4 +175,8 @@ const create = (req, res) => {
       remove,
       isInstructor,
       update,
+      listByInstructor,
+      listPublished,
+      photo,
+      defaultPhoto,
   }
