@@ -18,9 +18,9 @@ import {read, update} from './api-course.js'
 // import {enrollmentStats} from './../enrollment/api-enrollment'
 import {Link, Redirect} from 'react-router-dom'
 import auth from './../auth/auth-helper'
-// import DeleteCourse from './DeleteCourse'
+import DeleteCourse from './DeleteCourse'
 import Divider from '@material-ui/core/Divider'
-// import NewLesson from './NewLesson'
+import NewLesson from './NewLesson'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
@@ -187,12 +187,12 @@ export default function Course ({match}) {
                       <Edit/>
                     </IconButton>
                   </Link>
-                {/* {!course.published ? (<>
+                {!course.published ? (<>
                   <Button color="secondary" variant="outlined" onClick={clickPublish}>{course.lessons.length == 0 ? "Add atleast 1 lesson to publish" : "Publish"}</Button>
                   <DeleteCourse course={course} onRemove={removeCourse}/>
                 </>) : (
                   <Button color="primary" variant="outlined">Published</Button>
-                )} */}
+                )}
                 </span>)
              }
                 {course.published && (<div>
@@ -233,7 +233,7 @@ export default function Course ({match}) {
                 </span>)
             }
                 />
-                
+
                 <List>
                 {course.lessons && course.lessons.map((lesson, index) => {
                     return(<span key={index}>
